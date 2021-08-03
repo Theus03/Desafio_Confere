@@ -1,0 +1,263 @@
+/*================ GLOBAL ====================*/
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --white-dark: #E5E5E5;
+    --red: #F82F40;
+    --gray-dark: #4F494B;
+    --gray-bold: #BEC7EC;
+    --gray-medium: #D9D9EB;
+    --gray-light: #E0E4F2;
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 93.75%; /* Equivale a 15px */
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+
+body{
+    background: var(--white);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.logo {
+    width: 6rem;
+    margin-left: 5rem;
+    margin-right: 2rem;
+}
+
+#loc {
+    color:var(--white);
+    background: var(--red);
+    padding: 0.5rem;
+    width: 6.5rem;
+    border-radius: 0.5rem;
+}
+
+header {
+    background: var(--white);
+}
+
+
+/*============== NAVBAR =====================*/
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+ul > a {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+ul > a:hover {
+    color: var(--gray-dark);
+}
+
+.icon.cart {
+    width: 3.5rem;
+}
+
+
+/*================ BANNER =============================== */
+
+
+.text-banner {
+    font-size: 4rem;
+    font-weight: 800;
+    z-index: 1;
+    position: absolute;
+    margin-top: 6rem;
+    margin-left: 6rem;
+}
+
+.sliders img{
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    width: 60rem;
+    transition: ease in out 1s;
+}
+
+.sliders img.selected{
+    opacity: 1;
+}
+
+/* ================== SECTION =====================*/
+
+section {
+    margin-top: 42%;
+    margin-left: 2rem;
+}
+
+.title-text {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-left: 4rem;
+}
+
+.title-text.products {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-left: 10rem;
+    margin-top: 5rem;
+    text-transform: uppercase;
+}
+
+
+.container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container > img {
+    height: 12rem;
+}
+
+.container > img:nth-child(4),.container > img:nth-child(1){
+    height:5rem;
+}
+
+
+/*====================== FOOTER ============================== */
+
+footer {
+    background-color: var(--gray-bold);
+    margin-top: 1.5rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 5fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+hr{
+    height: 85%;
+    border-color: var(--gray-light);
+    width:0;
+}
+
+.text-footer {
+    color: #000;
+}
+
+
+/* ================== RESPONSIVE ================== */
+
+@media (max-width: 800px) {
+    html{
+        font-size: 87.5%; /* Equivale a 14px */
+        overflow: auto;
+    }
+
+    
+    body{
+        background: var(--white);
+        font-family: 'Roboto', sans-serif;
+        height: 150vh;
+    }
+
+    .logo {
+        width: 3rem;
+        margin-left: 0.2rem;
+        margin-right: 0.5rem;
+    }
+
+    ul {
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        list-style: none;
+    }
+    
+    ul > a {
+        text-align: center;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--black);
+        text-decoration: none;
+        transition: 0.4s;
+    }
+    
+    #loc {
+        color:var(--black);
+        text-decoration: underline 3px var(--red);
+        background: none;
+        padding: 0.5rem;
+        width: 2.8rem;
+        border-radius: 0.5rem;
+    }
+
+    .icon.cart {
+        width: 2rem;
+    }
+    
+    .sliders img {
+        display: none;
+    }
+    
+    .text-banner {
+        font-size: 2rem;
+        text-align: center;
+        margin-left: 0rem;
+        margin-top: 2rem;
+    }
+    
+    section {
+        margin-top: 70%;
+        margin-left: 0rem;
+    }
+
+    .title-text {
+        margin-left: 0rem;
+        text-align: center;
+    }
+
+    
+    .title-text.products {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-left: 0rem;
+        margin-top: 5rem;
+        text-transform: uppercase;
+    }
+    .container {
+        flex-direction: column;
+    }
+    
+    .container > img {
+        height: 6rem;
+    }
+    
+    .container > img:nth-child(4), .container > img:nth-child(1){
+        height:3rem;
+    }   
+    footer{
+        overflow: auto;
+    }
+
+}
