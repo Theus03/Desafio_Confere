@@ -4,34 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../icons/logo.png" type="image/x-icon">
     <title>Masculinos - SneakerStore</title>
     <link rel="stylesheet" href="../styles/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <a href=""><li><img class="logo" src="../icons/logo.png" alt="Logo"></li></a>
-                <a href=""><li>Home</li></a>
-                <a href=""><li>Feminino</li></a>
-                <a href=""  id="loc"><li>Masculino</li></a>
-                <a href=""><li>Infantil</li></a>
+                <a href="../home/index.html"><li><img class="logo" src="../icons/logo.png" alt="Logo"></li></a>
+                <a href="../home/index.html"><li>Home</li></a>
+                <a href="./femininos.html"><li>Feminino</li></a>
+                <a href="./masculinos.html" id="loc"><li>Masculino</li></a>
+                <a href="./infantis.html"><li>Infantil</li></a>
                 <a href=""><li><img class="icon cart" src="../icons/cart.png" alt="Carrinho de compra"></li></a>
             </ul>
         </nav>
     </header>
     <main>
         <h1 class="title-text products">Calçados Masculinos</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Imagem</th>
-                    <th>Nome</th>
-                    <th>Preço</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <div class="box-products">
+            <div class="content masc">
+                <img src="" alt="">
+                <h3></h3>
+                <h2></h2>
+            </div> 
+        </div>
     </main>
+    <footer>
+        <div class="footer logo">
+            <img class="logo" src="../icons/logo.png" alt="Logo">
+        </div>
+        <hr>
+        <div class="footer partner">
+            <h3>Parcerias</h3>
+            <a class="text-footer" href="https://www.adidas.com.br/" target="_blank" rel="noopener noreferrer"><p>Adidas</p></a>
+            <a class="text-footer" href="https://www.nike.com.br/masculino/marcas/jordan" target="_blank" rel="noopener noreferrer"><p>Air Jordan</p></a>
+            <a class="text-footer" href="https://www.newbalance.com.br/" target="_blank" rel="noopener noreferrer"><p>New Balance</p></a>
+            <a class="text-footer" href="https://www.nike.com.br/" target="_blank" rel="noopener noreferrer"><p>Nike</p></a>
+        </div>
+        <div class="footer shoes">
+            <h3>Calçados</h3>
+            <a class="text-footer" href="../products/femininos.html"><p>Femininos</p></a>
+            <a class="text-footer" href="../products/masculinos.html"> <p>Masculinos</p></a>
+            <a class="text-footer" href="../products/infantis.html"> <p>Infantis</p></a>
+        </div>
+    </footer>
+<script src="../scripts/products.js"></script>
 </body>
 </html>

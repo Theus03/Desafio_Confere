@@ -97,7 +97,7 @@ ul > a:hover {
     position: absolute;
     right: 0;
     width: 60rem;
-    transition: ease in out 1s;
+    transition: 0.4s;
 }
 
 .sliders img.selected{
@@ -139,6 +139,40 @@ section {
 
 .container > img:nth-child(4),.container > img:nth-child(1){
     height:5rem;
+}
+
+/*======================= PRODUCTS ============================*/
+.box-products{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3.5rem;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    text-align: center;
+    align-items: center;
+}
+
+.box {
+    background-color: var(--gray-bold);
+    cursor:pointer;
+    padding: 2rem;
+    width: 25rem;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.box:hover {
+    padding-right: 1rem;
+}
+
+.box img{
+    width: 15rem;
 }
 
 
@@ -233,6 +267,7 @@ hr{
     }
 
     .title-text {
+        font-size: 1rem;
         margin-left: 0rem;
         text-align: center;
     }
@@ -256,6 +291,31 @@ hr{
     .container > img:nth-child(4), .container > img:nth-child(1){
         height:3rem;
     }   
+    .box-products{
+        height: 300vh;
+        overflow:auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .box {
+        background-color: var(--gray-bold);
+        cursor:pointer;
+        padding: 0.5rem;
+        width: 21rem;
+        border-radius: 8px;
+    }
+    .box img{
+        width: 15rem;
+    }
     footer{
         overflow: auto;
     }

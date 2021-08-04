@@ -1,5 +1,5 @@
 // Determina quanto tempo mostra a imagem antes de trocar
-let time = 7000,
+let time = 3000,
     currentImageWeb = 0,
     images = document.querySelectorAll(".sliders img")
     max = images.length;
