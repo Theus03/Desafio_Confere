@@ -99,7 +99,7 @@ var products = {
 
 // Para cada produto feminino do JSON ele adiciona no HTML 
 for (var i = 0; i < products.femininos.length; i++) {
-    var html = "<div class='box'>";
+    var html = "<div class='box' onclick='infoProd()'>";
     html += "<img src="+ products.femininos[i].imagem +">";
     html += "<h3>" + products.femininos[i].nome + "</h3>" + "<br>";
     html += "<h2>" + products.femininos[i].valor + "</h2>";
@@ -110,7 +110,7 @@ for (var i = 0; i < products.femininos.length; i++) {
 
 // Para cada produto masculino do JSON ele adiciona no HTML
 for (var i = 0; i < products.masculinos.length; i++) {
-    var html = "<div class='box'>";
+    var html = "<div class='box' onclick='infoProd()'>";
     html += "<img src="+ products.masculinos[i].imagem +">";
     html += "<h3>" + products.masculinos[i].nome + "</h3>" + "<br>";
     html += "<h2>" + products.masculinos[i].valor + "</h2>";
@@ -120,10 +120,30 @@ for (var i = 0; i < products.masculinos.length; i++) {
 
 // Para cada produto infantil do JSON ele adiciona no HTML
 for (var i = 0; i < products.infantis.length; i++) {
-    var html = "<div class='box'>";
+    var html = "<div class='box' onclick='infoProd()'>";
     html += "<img src="+ products.infantis[i].imagem +">";
     html += "<h3>" + products.infantis[i].nome + "</h3>" + "<br>";
     html += "<h2>" + products.infantis[i].valor + "</h2>";
     html += "<div>";
     $('div .content.kids').append(html)
+}
+
+function infoProd(){
+    location.replace("./infoProd.html")
+}
+
+function modalCart(){
+    document.querySelector(".modal-overlay.addCart").classList.add("active");
+}
+
+function closeModalCart() {
+    document.querySelector(".modal-overlay.addCart").classList.remove("active");
+}
+
+function modalBuyNow(){
+    document.querySelector(".modal-overlay.buyNow").classList.add("active");
+}
+
+function closeModalBuyNow() {
+    document.querySelector(".modal-overlay.buyNow").classList.remove("active");
 }

@@ -51,6 +51,18 @@ header {
     background: var(--white);
 }
 
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 
 /*============== NAVBAR =====================*/
 
@@ -69,6 +81,7 @@ ul > a {
     color: var(--black);
     text-decoration: none;
     transition: 0.4s;
+    z-index: 1;
 }
 
 ul > a:hover {
@@ -95,8 +108,10 @@ ul > a:hover {
 .sliders img{
     opacity: 0;
     position: absolute;
+    top: 0;
+    z-index: 0;
     right: 0;
-    width: 60rem;
+    width: 55rem;
     transition: 0.4s;
 }
 
@@ -173,6 +188,260 @@ section {
 
 .box img{
     width: 15rem;
+}
+
+.text-banner.name-prod {
+    color: var(--gray-dark);
+    margin-left: 10rem;
+}
+
+.container-prod{
+    background-color: var(--gray-medium);
+    height:50rem;
+    width: 55rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.container-prod img {
+    width: 38rem;
+    transform: rotate(-30deg);
+    transition: 0.4s;
+}
+
+.container-prod img:hover {
+    transform: rotate(-40deg);
+}
+
+.container-sizes {
+    margin-left: 50rem;
+    margin-top: 5rem;
+    position: absolute;
+    z-index: 1;
+}
+
+.title-size {
+    font-size: 1.5rem;
+    letter-spacing:0.5px;
+}
+
+.sizes {
+    display: flex;
+}
+
+.text-size {
+    padding: 1rem;
+    background: var(--white);
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    color: rgba(0, 0, 0, 0.75);
+    border-radius: 0.2rem;
+}
+
+.container-value {
+    margin-top: 23rem;
+    margin-left: 10rem;
+}
+
+.text-value {
+    font-size: 1.5rem;
+    opacity: 75%;
+}
+
+.text-value.prod.desc{
+    font-size: 2rem;
+    opacity:100%;
+}
+
+.container-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    margin-top: 1.5rem;
+    margin-left: 12rem;
+}
+
+.button {
+    border: solid 3px var(--red);
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 25rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight:700;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.button:hover{
+    padding-left: 45px;
+}
+
+.button.addCart {
+    background: var(--red);
+}
+
+.button.buyNow {
+    background: var(--white);
+    color: var(--red);
+}
+
+
+/*===================== MODAL ================================*/
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    overflow:auto;
+    transition: 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 100;
+    visibility: visible;
+}
+
+
+.modal {
+    background-color: var(--gray-medium);
+    border-radius: 5px;
+    width: 40%;
+    height: 50vh;
+    padding: 50px;
+    display: flex;
+    justify-content:center;
+    position: relative;
+    z-index: 1;
+    overflow:auto;
+}
+
+.modal.buyNow {
+    width: 60%;
+    height: 70vh;
+}
+
+
+/*=============== Form ==========================*/
+
+#form {
+    width: 100%;
+}
+
+.box-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    background-color: var(--red);
+    width: 4rem;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content:center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.box-close:hover {
+    padding-bottom: 1rem
+}
+
+.header-group {
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content:center;
+}
+
+.infoBuy {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+}
+
+.text-infoBuy {
+    font-size: 1rem;
+    font-weight: 700;
+    color:rgba(0, 0, 0, 0.54)
+}
+
+.title-form {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.input-group{
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-left: 8rem;
+}
+
+.label {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    width: 70%;
+    background: var(--gray-bold);
+    border: none;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.80);
+    font-weight: 700;
+    padding: 1rem;
+}
+
+
+.input::placeholder {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.input-group.actions {
+    margin-top: 2rem;
+    margin-left: 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-new-add{
+    padding: 0.8rem;
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    width: 15rem;
+    cursor: pointer;
+    transition: 0.4s;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.button-new-add:hover {
+    padding-left: 2rem;
 }
 
 
@@ -316,6 +585,154 @@ hr{
     .box img{
         width: 15rem;
     }
+    
+    .text-banner.name-prod {
+        color: var(--gray-dark);
+        margin-left: 5rem;
+        margin-bottom: 15rem;
+        text-align: center;
+    }
+    .container-prod{
+        background-color: var(--gray-medium);
+        height:10rem;
+        width: 30rem;
+        margin-top: 15rem;
+        margin-right: 0rem;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    
+    .container-prod img {
+        width: 10rem;
+        transform: rotate(0deg);
+        transition: 0.4s;
+    }
+
+    .container-prod img:hover {
+        transform: rotate(0deg);
+    }
+    
+    .container-value {
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        margin-top: 23rem;
+        margin-left: 0rem;
+    }
+    
+    .text-value {
+        font-size: 1.3rem;
+        opacity: 75%;
+    }
+
+    .text-value.prod.desc{
+        font-size: 1.6rem;
+        opacity:100%;
+    }
+    .container-sizes {
+        margin-left: 0rem;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .sizes {
+        display: flex;
+    }
+
+    .text-size {
+        padding: 1rem;
+        background: var(--gray-light);
+        margin-top: 1rem;
+        margin-left: 0.5rem;
+        color: rgba(0, 0, 0, 0.75);
+        border-radius: 0.2rem;
+    }
+
+    .title-size {
+        font-size: 1.5rem;
+        letter-spacing:0.5px;
+    }
+        
+    .container-buttons {   
+        width: 5rem;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+
+    .button {
+        border: solid 3px var(--red);
+        margin-top: 1rem;
+        padding: 1rem;
+        width: 18rem;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight:700;
+        letter-spacing: 0.5px;
+        color: var(--white);
+        cursor: pointer;
+        transition: 0.4s;
+    }
+
+    
+    .modal {
+        background-color: var(--gray-medium);
+        border-radius: 5px; 
+        width: 100%;
+        height: 75vh;
+        padding: 50px;
+        display: flex;
+        justify-content:center;
+        position: relative;
+        z-index: 1;
+        overflow:auto;
+    }
+
+    .modal.buyNow {
+        width: 100%;
+        height: 85vh;
+        overflow: auto;
+    }
+
+    
+    .input-group{
+        display: flex;
+        flex-direction:column;
+        justify-content:center;
+        margin-left: 0rem;
+    }
+
+    .label {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .input {
+        width: 70%;
+        background: var(--gray-bold);
+        border: none;
+        border-radius: 5px;
+        color: rgba(0, 0, 0, 0.80);
+        font-weight: 700;
+        padding: 1rem;
+        overflow: auto;
+    }
+    
+    .input::placeholder {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
     footer{
         overflow: auto;
     }

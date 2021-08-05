@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../icons/logo.png" type="image/x-icon">
+    <title>Informações - SneakerStore</title>
+    <link rel="stylesheet" href="../styles/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <a href="../home/index.html"><li><img class="logo" src="../icons/logo.png" alt="Logo"></li></a>
+                <a href="../home/index.html"><li>Home</li></a>
+                <a href="./femininos.html"><li>Feminino</li></a>
+                <a href="./masculinos.html"><li>Masculino</li></a>
+                <a href="./infantis.html"><li>Infantil</li></a>
+                <a href=""><li><img class="icon cart" src="../icons/cart.png" alt="Carrinho de compra"></li></a>
+            </ul>
+        </nav>
+    </header>
+    <h1 class="text-banner name-prod">Nike React Infinity<br> Run Flyknit 2I<br>Feminino</h1>
+    <div class="container-value">
+        <h3 class="text-value prod">De: R$ 799,99</h3>
+        <h2 class="text-value prod desc">Por: R$ 689,99 (-14%)</h2>
+    </div>
+    <div class="container-sizes">
+        <h3 class="title-size">Tamanhos Disponíveis:</h3>
+        <div class="sizes">
+            <h4 class="text-size">34</h4>
+            <h4 class="text-size">35</h4>
+            <h4 class="text-size">36</h4>
+            <h4 class="text-size">37</h4>
+        </div>
+    </div>
+    <div class="container-buttons">
+        <input type="submit" class="button addCart" id="button" value="Adicionar ao Carrinho" onclick="modalCart()">
+        <input type="submit" class="button buyNow" id="button" value="Comprar Agora" onclick="modalBuyNow()">
+    </div>
+   
+    <div class="container-prod">
+        <img src="../img/tenis-react.png" alt="">
+    </div>
+    <div class="modal-overlay addCart">
+        <div class="modal">
+            <div id="form">
+                <div class="header-group">
+                    <div class="title-form">OPÇÕES DA COMPRA</div>
+                    <a  class="box-close" onclick="closeModalCart()">x</a>
+                </div>
+                <form action="" onsubmit="Form.submit(event)">
+                    <div class="input-group">
+                        <label class="label" for="number">Digite o tamanho do Tênis</label>
+                        <input class="input" type="number" id="number" name="number" min="1" placeholder="Número"/>
+                    </div><br>
+                    <div class="input-group">
+                        <label class="label" for="qntd">Quantidade do Produto</label>
+                        <input class="input" type="number" id="qntd" name="qntd" min="1" placeholder="Quantidade"/>
+                    </div>
+                    <div class="input-group actions">
+                        <button class="button-new-add">Pronto</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay buyNow">
+        <div class="modal buyNow">
+            <div id="form">
+                <div class="header-group">
+                    <div class="title-form">CONFIRMAR COMPRA</div>
+                    <a  class="box-close" onclick="closeModalBuyNow()">x</a>
+                </div>
+                <div class="infoBuy">
+                    <h3 class="text-infoBuy">Nome do Tênis</h3>
+                    <h3 class="text-infoBuy">Valor</h3>
+                    <h3 class="text-infoBuy">Quantidade</h3>
+                    <h3 class="text-infoBuy">Tamanho</h3>
+                </div>
+                <form action="" onsubmit="Form.submit(event)">
+                    <div class="input-group">
+                        <label class="sr-only" for="number-card">Número do Cartão</label>
+                        <input class="input" type="text" id="number-card" name="number-card" placeholder="Número do Cartão"/>
+                    </div><br>
+                    <div class="input-group">
+                        <label class="sr-only" for="validate-card">Validade do Cartão</label>
+                        <input class="input" type="text" id="validate-card" name="validate-card" maxlength="7" placeholder="Validade do Cartão"/>
+                    </div><br>
+                    <div class="input-group">
+                        <label class="sr-only" for="cvv">CVV</label>
+                        <input class="input" type="number" id="cvv" name="cvv" placeholder="CVV"/>
+                    </div><br>
+                    <div class="input-group">
+                        <label class="sr-only" for="name">Nome</label>
+                        <input class="input" style="text-transform: uppercase;" type="text" id="name" name="name" placeholder="NOME IMPRESSO NO CARTÃO"/>
+                    </div><br>
+                    <div class="input-group actions">
+                        <button class="button-new-add">Comprar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<script src="../scripts/products.js"></script>
+</body>
+</html>
