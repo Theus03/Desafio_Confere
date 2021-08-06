@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="../icons/logo.png" type="image/x-icon">
     <title>Meu Carrinho - SneakerStore</title>
     <link rel="stylesheet" href="../styles/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -23,7 +24,7 @@
     </header>
     <div class="cart-header">
         <h2>Meu Carrinho</h2>
-        <input type="submit" class="button-buyNow-cart" value="Comprar Agora">
+        <input type="submit" class="button-buyNow-cart" value="Comprar Agora" onclick="Modal.modalBuyNow()">
     </div>
     <main class="container-main">
         <table id="data-table">
@@ -45,12 +46,50 @@
                     <td>40</td>
                     <td>1</td>
                     <td>
-                        <input type="button" value="Remover" class="button-delete-cart">
+                        <input type="button" value="Remover" class="button-delete-cart" onclick="Myproducts.remove()">
                     </td>
                 </tr>
             </tbody>
         </table>
     </main>
+    
+    <div class="modal-overlay buyNow">
+        <div class="modal buyNow">
+            <div id="form">
+                <div class="header-group">
+                    <div class="title-form">CONFIRMAR COMPRA</div>
+                    <a  class="box-close" onclick="Modal.closeModalBuyNow()">x</a>
+                </div>
+                <div class="infoBuy">
+                    <h3 class="text-infoBuy">Nome do Tênis</h3>
+                    <h3 class="text-infoBuy">Valor</h3>
+                    <h3 class="text-infoBuy">Quantidade</h3>
+                    <h3 class="text-infoBuy">Tamanho</h3>
+                </div>
+                <form action="" onsubmit="Form.submit(event)">
+                    <div class="input-group">
+                        <label class="sr-only" for="number-card">Número do Cartão</label>
+                        <input class="input" type="text" id="number-card" name="number-card" placeholder="Número do Cartão"/>
+                    </div><br>
+                    <div class="input-group">
+                        <label class="sr-only" for="validate-card">Validade do Cartão</label>
+                        <input class="input" type="text" id="validate-card" name="validate-card" maxlength="7" placeholder="Validade do Cartão"/>
+                    </div><br>
+                    <div class="input-group">
+                        <label class="sr-only" for="cvv">CVV</label>
+                        <input class="input" type="number" id="cvv" name="cvv" placeholder="CVV"/>
+                    </div><br>
+                    <div class="input-group">
+                        <label class="sr-only" for="name">Nome</label>
+                        <input class="input" style="text-transform: uppercase;" type="text" id="name" name="name" placeholder="NOME IMPRESSO NO CARTÃO"/>
+                    </div><br>
+                    <div class="input-group actions">
+                        <button class="button-new-add">Comprar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="../scripts/products.js"></script>
 </body>
 </html>

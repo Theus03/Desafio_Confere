@@ -1,3 +1,4 @@
+// Array de todos os produtos
 var products = {
     femininos: [
         {
@@ -98,7 +99,7 @@ var products = {
     ]
 };  
 
-// Para cada produto feminino do JSON ele adiciona no HTML 
+// Para cada produto feminino do JSON ele mostra no HTML 
 for (var i = 0; i < products.femininos.length; i++) {
     var html = "<div class='box' onclick='infoProd()'>";
     html += "<img src="+ products.femininos[i].imagem +">";
@@ -109,7 +110,7 @@ for (var i = 0; i < products.femininos.length; i++) {
 }
 
 
-// Para cada produto masculino do JSON ele adiciona no HTML
+// Para cada produto masculino do JSON ele mostra no HTML
 for (var i = 0; i < products.masculinos.length; i++) {
     var html = "<div class='box' onclick='infoProd()'>";
     html += "<img src="+ products.masculinos[i].imagem +">";
@@ -119,7 +120,7 @@ for (var i = 0; i < products.masculinos.length; i++) {
     $('div .content.masc').append(html)
 }
 
-// Para cada produto infantil do JSON ele adiciona no HTML
+// Para cada produto infantil do JSON ele mostra no HTML
 for (var i = 0; i < products.infantis.length; i++) {
     var html = "<div class='box' onclick='infoProd()'>";
     html += "<img src="+ products.infantis[i].imagem +">";
@@ -129,25 +130,166 @@ for (var i = 0; i < products.infantis.length; i++) {
     $('div .content.kids').append(html)
 }
 
-
-
+// Função para pegar informações de cada produto no qual eu clicar
 function infoProd(){
+    // Tentei pegar o nome de cada produto para que eu podesse mostar na tela de informações do produto
     alert("" + products.masculinos[0].nome)
+
+    // Depois eu mando o usuário para a tela de informaç~]oes do produto
     location.replace("./infoProd.html")
 }
 
-function modalCart(){
-    document.querySelector(".modal-overlay.addCart").classList.add("active");
+
+// Aqui estou salvando os produtos para que se carregar a página eles fiquem salvos
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem("sneakers:Myproducts")) || []
+    },
+
+    set(Myproducts) {
+        localStorage.setItem("sneakers:Myproducts", JSON.stringify(Myproducts))
+    }
 }
 
-function closeModalCart() {
-    document.querySelector(".modal-overlay.addCart").classList.remove("active");
+
+// Função para adicionar o produto e remover o produto;
+const Myproducts = {
+    all: Storage.get(),
+
+    add(product) {
+        Myproducts.all.push(product)
+
+        App.reload()
+    },
+
+    remove(index) {
+        Myproducts.all.splice(index, 1)
+
+        App.reload()
+    }
 }
 
-function modalBuyNow(){
-    document.querySelector(".modal-overlay.buyNow").classList.add("active");
+
+// Função para adicionar o produto na tabela
+const DOM = {
+    productsContainer: document.querySelector('#data-table tbody'),
+
+    addProduct(product, index) {
+        const tr = document.createElement('tr')
+        tr.innerHTML = DOM.innerHTMLProducts(product, index)
+        tr.dataset.index = index
+
+        DOM.productsContainer.appendChild(tr)
+    },
+
+    innerHTMLProducts(product, index) {
+
+        const html = `
+        <tr>
+            <td><img src="../img/tenis-react.png" alt=""></td>
+            <td>Tênis</td>
+            <td>299,99</td>
+            <td class="number">${product.number}</td>
+            <td class="qntd">${product.qntd}</td>
+            <td>
+                <input type="button" value="Remover" class="button-delete-cart" onclick="Transaction.remove(${index})">
+            </td>
+        </tr>
+        `
+        return html
+    },
+
+    clearProduct() {
+        DOM.productsContainer.innerHTML = ""
+    }
 }
 
-function closeModalBuyNow() {
-    document.querySelector(".modal-overlay.buyNow").classList.remove("active");
+
+// Funções para abrir e fechar o Modal
+const Modal = {
+    modalCart(){
+        document.querySelector(".modal-overlay.addCart").classList.add("active");
+    },
+    
+     closeModalCart() {
+        document.querySelector(".modal-overlay.addCart").classList.remove("active");
+    },
+    
+     modalBuyNow(){
+        document.querySelector(".modal-overlay.buyNow").classList.add("active");
+    },
+    
+     closeModalBuyNow() {
+        document.querySelector(".modal-overlay.buyNow").classList.remove("active");
+    }
 }
+
+
+// Tentei pegar os valores do Form e verficá-los
+const Form = {
+    number: document.querySelector('input#number'),
+    qntd: document.querySelector('input#qntd'),
+
+    getValues() {
+        return {
+            number: Form.number.value,
+            qntd: Form.qntd.value,
+        }
+    },
+
+    validateFields() {
+        const { number, qntd } = Form.getValues()
+        
+        if( number.trim() === "" || 
+            qntd.trim() === "") {
+                throw new Error("Por favor, preencha todos os campos")
+        }
+    },
+    formatValues() {
+        let { number, qntd } = Form.getValues()
+
+        return {
+            number,
+            qntd
+        }
+    },
+
+    clearFields() {
+        Form.number.value = ""
+        Form.qntd.value = ""
+    },
+
+
+
+    submit(event) {
+        event.preventDefault()
+
+        try {
+            Form.validateFields()
+            const product = Form.formatValues()
+            Myproducts.add(product)
+            Form.clearFields()
+            Modal.closeModalCart()
+        } catch (error) {
+            alert(error.message)
+        }
+    }
+}
+
+
+// Função para carreagr a aplicação, para executar os métodos para iniciar e recarregar
+const App = {
+    init() {
+        Myproducts.all.forEach(DOM.addProduct)
+
+        Storage.set(Myproducts.all)
+    },
+    reload() {
+        location.replace("./MyCart.html")
+        DOM.clearProduct()
+        App.init()
+    },
+}
+
+// Inicialização da aplicação
+App.init();
