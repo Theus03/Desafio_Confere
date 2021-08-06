@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../icons/logo.png" type="image/x-icon">
+    <title>Meu Carrinho - SneakerStore</title>
+    <link rel="stylesheet" href="../styles/index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <a href="../home/index.html"><li><img class="logo" src="../icons/logo.png" alt="Logo"></li></a>
+                <a href="../home/index.html"><li>Home</li></a>
+                <a href="./femininos.html"><li>Feminino</li></a>
+                <a href="./masculinos.html"><li>Masculino</li></a>
+                <a href="./infantis.html"><li>Infantil</li></a>
+                <a href="./myCart.html"><li><img class="icon cart" src="../icons/cart.png" alt="Carrinho de compra"></li></a>
+            </ul>
+        </nav>
+    </header>
+    <div class="cart-header">
+        <h2>Meu Carrinho</h2>
+        <input type="submit" class="button-buyNow-cart" value="Comprar Agora">
+    </div>
+    <main class="container-main">
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Imagem</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Tamanho</th>
+                    <th>Quantidade</th>
+                    <th></th>
+                </tr>   
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="../img/tenis-react.png" alt=""></td>
+                    <td>Tênis</td>
+                    <td>299,99</td>
+                    <td>40</td>
+                    <td>1</td>
+                    <td>
+                        <input type="button" value="Remover" class="button-delete-cart">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script src="../scripts/products.js"></script>
+</body>
+</html>

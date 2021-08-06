@@ -1,6 +1,7 @@
 var products = {
     femininos: [
         {
+            "id": 1,
             "imagem": '../img/tenis-femininos/adidas-fem-one.png',
             "nome": "Tênis Forum Bold",
             "valor": "R$ 599,99"
@@ -128,7 +129,10 @@ for (var i = 0; i < products.infantis.length; i++) {
     $('div .content.kids').append(html)
 }
 
+
+
 function infoProd(){
+    alert("" + products.masculinos[0].nome)
     location.replace("./infoProd.html")
 }
 
