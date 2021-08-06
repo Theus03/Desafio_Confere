@@ -132,7 +132,7 @@ for (var i = 0; i < products.infantis.length; i++) {
 // Função para pegar informações de cada produto no qual eu clicar
 function infoProd(){
     // Tentei pegar o nome de cada produto para que eu podesse mostar na tela de informações do produto
-    alert("" + products.masculinos[0].nome)
+    //alert("" + products.masculinos[0].nome)
 
     // Depois eu mando o usuário para a tela de informaç~]oes do produto
     location.replace("./infoProd.html")
