@@ -109,7 +109,6 @@ for (var i = 0; i < products.femininos.length; i++) {
     $('div .content.fem').append(html)
 }
 
-
 // Para cada produto masculino do JSON ele mostra no HTML
 for (var i = 0; i < products.masculinos.length; i++) {
     var html = "<div class='box' onclick='infoProd()'>";
